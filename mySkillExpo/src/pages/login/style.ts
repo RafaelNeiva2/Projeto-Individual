@@ -3,48 +3,61 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor:"#89B5AF"
+        backgroundColor:"#2e2e2e"
+    },
+    img:{
+        width: 150,
+        height: 150,
+        alignSelf:'center'
+        
+       
     },
     containerHeader:{
         marginTop:"14%",
-        marginBottom:'10%',
         paddingStart:'5%'
 
     },
     message:{
-        fontSize: 18,
+        fontSize: 25,
         fontWeight: "bold",
-        color: "#fff"
+        color: "#92B4EC",
+        
+        
+        
     
     },
     form:{
-        backgroundColor:"#DED9C4",
+        backgroundColor:"#F2EBE9",
         flex:1,
         paddingHorizontal:'5%',
         paddingVertical:'5%',
         marginHorizontal:'7%',
+        marginTop:90,
         height:290,
-        borderRadius:10
+        borderRadius:10,
         
 
     },
     title:{
-        marginVertical:5,
+        marginVertical:10,
         fontSize: 18,
         fontWeight: "bold",
+       
 
     },
     input:{
         backgroundColor:"#fff",
-        paddingStart:5,
+        paddingStart:10,
+        paddingVertical:3,
         marginVertical:5,
-        borderRadius:5
+        borderRadius:10,
+        
         
     },
     button:{
-        backgroundColor:"#D0CAB2",
+        backgroundColor:"#FFD24C",
         width:90,
-        padding:5,
+        padding:7,
         alignItems:'center',
         marginVertical:15,
         alignSelf:'center',
@@ -52,11 +65,9 @@ export default StyleSheet.create({
 
     },
     buttonText:{
-        color: "#fff",
+        color: "#000",
         fontSize: 16,
-        fontWeight: "bold",
-        flex: 1,
-        
+        fontWeight:'600'
     }
 
 })
