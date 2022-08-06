@@ -9,13 +9,45 @@ export default StyleSheet.create({
         backgroundColor:"#fff",
         paddingStart:10,
         paddingVertical:3,
-        marginVertical:50,
+        marginTop:50,
+        marginBottom:25,
         marginHorizontal:30,
         borderRadius:18,
         
     },
     card:{
+        
 
     },
+    linguagens:{
+        backgroundColor:"#cccccc90",
+        margin:10,
+        height:60,
+        width:330,
+        flexDirection:'row',
+        borderRadius:10,
+        alignSelf:'center',
+        padding:6,
+        marginVertical:15,
+        
+
+    },
+    imgMenor:{
+        width:50,
+        height:50,
+        tintColor: "#003865",
+
+    },
+    textNome:{
+       fontSize:18,
+       fontWeight: 'bold',
+       color: "#333",
+
+    },
+    telefone:{
+        fontStyle:'italic'
+        
+    }
+
 
 })

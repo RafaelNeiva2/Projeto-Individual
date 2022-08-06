@@ -1,65 +1,83 @@
-import React, { useEffect,useState } from "react";
-import { View,Text, TextInput } from "react-native";
+import React, {  useEffect, useState } from "react";
+import { View, Text, TextInput, TouchableOpacity, FlatList, Image } from "react-native";
+import { api } from "../../services/api";
 import styles from "./style";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import SQL from "../../assets/image/postgresql.png";
-
-export default function Find(){
-    interface Linguagens {
-        id: number,
-        nome: string,
-        url: string
-    }
-
-    const [searchText, setSearchText] = useState('');
-
-
-    const [linguagens, setLinguagens] = useState([
-        {
-            id:'1',
-            nome:'SQL',
-            url : SQL
-        }
 
 
 
 
-    ]);
+interface contatos {
+    id: number,
+    nome: string,
+    telefone: string,
+    url: string
+}
 
-    const [list, setList] = useState(linguagens);
 
-    // useEffect(() => {
+export default function Find() {
+    const [contatos,setContatos] = useState([]);
+    const[searchText, setSearchText]= useState('')
+    const [list,setList] = useState(contatos)
 
-    //     buscaListaLinguagens().then((res) => {
-    //         setProdutos(res.data);
-    //     }).catch((err) => {
-    //         console.log(err);
-    //     }).finally(() => {
-
-    //     })
-    // }, [])
+    useEffect(() =>{
+        api.get("contato").then(({data})=>{
+            setContatos(data.contatos);
+    
+        });
+        console.log(contatos)
+    
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+      }
+      ,[]);
+        
 
     useEffect(() => {
         if (searchText === '') {
-            setList(linguagens);
+          setList(contatos);
         } else {
-            setList(
-                linguagens.filter(
-                    (item) =>
-                        item.nome.toLowerCase().indexOf(searchText.toLowerCase()) > -1
-                )
-            );
+          setList(
+            contatos.filter(
+              (item) =>
+                item.nome.toLowerCase().indexOf(searchText.toLowerCase()) > -1
+            )
+          );
         }
-    }, [searchText]);
+      }, [searchText]);
 
+    
+     
 
-    return(
+    return (
         <View style={styles.container}>
-            <TextInput placeholder="Search" style={styles.input} />
-            <View style={styles.card}>
-                
 
-            </View>
+            <TextInput placeholder="Search" style={styles.input} 
+            value={searchText}
+            onChangeText={(t) => setSearchText(t)}
+              />
+          {contatos?.map((contato)=>(<View style={styles.card}>
+                <FlatList
+                    data={list}
+                    horizontal={false}
+                    renderItem={({ item }) => {
+                        return <TouchableOpacity style={styles.linguagens}>
+                            <Image source={contato.url} style={styles.imgMenor} />
+                            <View style={[{ position: "relative", paddingLeft: 10 }]}>
+                                <Text style={styles.textNome}>
+                                    {contato.nome}
+                                </Text>
+                                <Text style={styles.telefone}>
+                                    {contato.telefone}
+                                </Text>
+                            </View>
+
+                        </TouchableOpacity>
+                    }
+                    }
+                    keyExtractor={item => item.id}
+                />
+
+            </View>))}
+            
         </View>
     );
 }

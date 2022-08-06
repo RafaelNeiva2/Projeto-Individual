@@ -8,7 +8,8 @@ export default StyleSheet.create({
     img:{
         width: 150,
         height: 150,
-        alignSelf:'center'
+        alignSelf:'center',
+        borderRadius:200
         
        
     },
@@ -32,8 +33,8 @@ export default StyleSheet.create({
         paddingHorizontal:'5%',
         paddingVertical:'5%',
         marginHorizontal:'7%',
-        marginTop:90,
-        height:290,
+        marginTop:75,
+        height:400,
         borderRadius:10,
         
 
@@ -54,20 +55,39 @@ export default StyleSheet.create({
         
         
     },
+    botoes:{
+        flexDirection: 'row', 
+        justifyContent:'center',
+        marginTop:15,
+
+    },
     button:{
-        backgroundColor:"#FFD24C",
+        backgroundColor:"#92B4EC",
         width:90,
         padding:7,
         alignItems:'center',
-        marginVertical:15,
+        marginVertical:25,
+        marginRight:20,
+        alignSelf:'center',
+        borderRadius:10
+
+    },
+    buttonEntrar:{
+        backgroundColor:"#3B9AE1",
+        width:90,
+        padding:7,
+        alignItems:'center',
+        marginVertical:25,
         alignSelf:'center',
         borderRadius:10
 
     },
     buttonText:{
-        color: "#000",
+        color: "#fff",
         fontSize: 16,
         fontWeight:'600'
-    }
+    },
+
+    
 
 })

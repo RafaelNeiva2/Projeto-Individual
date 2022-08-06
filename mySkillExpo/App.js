@@ -7,11 +7,11 @@ import  Routes  from './src/routes';
 
 export default function App() {
   return (
-    // <NavigationContainer>
-    //   <StatusBar backgroundColor='#000' barStyle="light-content"/>
-    //   <Routes/>
-    // </NavigationContainer>
-       <Find/>
+     <NavigationContainer>
+       <StatusBar backgroundColor='#000' barStyle="light-content"/>
+       <Routes/>
+    </NavigationContainer>
+      
   );
 }
 
